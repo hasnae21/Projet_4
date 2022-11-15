@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Task;
@@ -25,12 +24,11 @@ class TaskController extends Controller
             'name' => $request->name_task
             ]);
     }
-
-
+    
     public function destroy($id)
     {
         Task::where('id', $id)
             ->delete();
     }
-
+    
 }
