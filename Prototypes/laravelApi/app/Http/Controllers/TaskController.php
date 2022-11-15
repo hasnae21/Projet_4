@@ -6,12 +6,10 @@ use App\Models\Task;
 
 class TaskController extends Controller
 {
-
     public function index()
     {
         return Task::all();
     }
-
 
     public function store(Request $request)
     {
@@ -19,7 +17,6 @@ class TaskController extends Controller
         $task->name = $request->name_task;
         $task->save();
     }
-
 
     public function update(Request $request, $id)
     {
