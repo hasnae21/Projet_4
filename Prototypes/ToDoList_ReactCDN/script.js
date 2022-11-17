@@ -7,18 +7,23 @@ class MyForm extends React.Component {
         }
     }
 
-    handleName=(e)=>{
-        this.setState({name:e.target.value});
+    handleSubmit=(e)=>{
+        e.preventDefault();
+        console.log('name',this.state.name)
     }
+
     render() {
         return(
             <div>
-                <h1>Entrer une nouvelle tache</h1>
-                <form>
-                    <input type="text" name="name" value={this.state.name} onChange={(e)=>{this.handleName(e)}}/>
-                    {/* <input type="submit" value="Ajouter" /> */}
-                    <p> {this.state.name} </p>
+            <h1>Entrer une nouvelle tache :</h1>
+
+                <form onSubmit={(e)=>{this.handleSubmit(e)}}>
+                    <input type="text" name="name" value={this.state.name} 
+                        onChange={(e)=>{this.setState({[e.target.name]:e.target.value})}}/>
+                    <input type="submit" value="Ajouter" />
                 </form>
+                
+                {/* <p> {this.state.name} </p> */}
             </div>
         )
     }
