@@ -48,6 +48,7 @@ class MyForm extends React.Component {
                 <form onSubmit={this.handleSubmit}>
                     <input onChange={this.handleChange} value={this.state.name}
                         required />
+                        <button>Ajouter</button>
                 </form>
                 <TodoList items={this.state.items} />
             </div>
