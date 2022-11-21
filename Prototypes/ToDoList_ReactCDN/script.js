@@ -13,8 +13,6 @@ class MyForm extends React.Component {
 
     handleSubmit=(e)=>{
         e.preventDefault();
-        console.log('name',this.state.name)
-
             const newItem = {
                 name: this.state.name,
                 id: Date.now()
@@ -28,8 +26,6 @@ class MyForm extends React.Component {
     render() {
         return(
             <div>
-            <h1>Entrer une nouvelle tache :</h1>
-
                 <form onSubmit={this.handleSubmit}>
 
                     <input type="text" name="name" onChange={this.handleChange} value={this.state.name} 
@@ -38,28 +34,9 @@ class MyForm extends React.Component {
                     {/* <input type="submit" value="Ajouter" /> */}
 
                 </form>
-
                 <TodoList items={this.state.items} />
-                {/* <p> {this.state.name} </p> */}
             </div>
         )
-    }
-
-    
-}
-class TodoList extends React.Component {
-    render() {
-      return (
-
-        <ul>
-          {this.props.items.map(item => (
-
-            <li key={item.id}>{item.name}</li>
-
-          ))}
-        </ul>
-
-      );
     }
   }
 
