@@ -29,12 +29,6 @@ class App extends React.Component {
         task: ''
     }
 
-    changeData = (e) => {
-        this.setState({
-            task: e.target.value
-        })
-    }
-
     addData = (e) => {
         e.preventDefault()
         axios.post('http://127.0.0.1:8000/api/task', {
@@ -67,16 +61,13 @@ class App extends React.Component {
     render() {
         return (
             <div>
-                <form action="http://127.0.0.1:8000/api/task" method="POST">
-
-                    <input type="text" name="task" onChange={this.changeData} />
+                <form>
+                    <input type="text" name="task"/>
                     <input type="submit" value="Ajouter" name="submit" onClick={this.addData} />
-
                 </form>
-
-                <div key={Math.random()}>
+                <div>
                     {this.state.tasks.map(task =>
-                        <p>
+                        <p key={Math.random()}>
                             {task.name}
                             <button onClick={() => this.onDelete(task.id)}>Delete</button>
                         </p>
@@ -85,7 +76,6 @@ class App extends React.Component {
             </div>
         )
     }
-
 }
 
 const root = ReactDOM.createRoot(document.getElementById('todos-example'));
