@@ -25,7 +25,7 @@ class ChartBar extends React.Component {
             <div style={{ width: 600 }}>
 
                 <Line data={{
-                    labels: this.state.Data.map((value) => value.Task),
+                    labels: this.state.Data.map((value) => value.name),
                     datasets: [{
                         label: "duree de tache (/h)",
                         data: this.state.Data.map((value) => value.Period),
