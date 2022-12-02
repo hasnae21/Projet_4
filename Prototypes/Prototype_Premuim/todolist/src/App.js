@@ -12,7 +12,6 @@ class App extends React.Component {
           <div  className="Table">
               <Table/>
           </div>
-            
           <ChartBar/>
         </div>
       </div>
