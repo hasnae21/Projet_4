@@ -1,27 +1,24 @@
-// const GET_API=()=>{
-//     fetch("http://127.0.0.1:8000/api/task")
-//         .then(response => response.json())
-//         // .then(response => this.setState({tasks:response}))
-//         .then(json => console.log(json))
-//         .catch(error => console.log('ERROR'))
-// }
-// class App extends React.Component {
-//     constructor(props) {
-//         super(props);
-//         this.state = {tasks:[]};
-//     }
+const GET_API=()=>{
+    fetch("http://127.0.0.1:8000/api/task")
+        .then(response => response.json())
+        // .then(response => this.setState({tasks:response}))
+        .then(json => console.log(json))
+        .catch(error => console.log('ERROR'))
+}
+class GET extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {tasks:[]};
+    }
 
-//     render() {
-//         return (
-//             <div>
-//                 <h1>_GET_API_</h1>
-//                 {/* {this.state.tasks.map(post=><div key={post.id}>{post.name}</div>)} */}
-//                 <button onClick={GET_API}>GET API</button>
-
-//             </div>
-//         );
-//     }
-// }
+    render() {
+        return (
+            <div>
+                <button onClick={GET_API}>GET API</button>
+            </div>
+        );
+    }
+}
 
 class App extends React.Component {
     state = {
@@ -78,5 +75,7 @@ class App extends React.Component {
     }
 }
 
+const root1 = ReactDOM.createRoot(document.getElementById('todos-get'));
+root1.render(<GET />);
 const root = ReactDOM.createRoot(document.getElementById('todos-example'));
 root.render(<App />);

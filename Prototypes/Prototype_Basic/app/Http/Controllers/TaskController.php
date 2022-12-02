@@ -17,6 +17,11 @@ class TaskController extends Controller
         $task->save();
     }
 
+    public function edit($id)
+    {
+        return $task = Task::find($id);
+    }
+
     public function update(Request $request, $id)
     {
         Task::find($id)
