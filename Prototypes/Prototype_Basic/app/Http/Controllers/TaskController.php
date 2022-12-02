@@ -8,6 +8,7 @@ class TaskController extends Controller
     public function index()
     {
         return Task::all();
+        // return Task::select("*",DB::raw("TIMESTAMPDIFF(HOUR,Date_debut,Date_fin) AS Period"))->get();
     }
 
     public function store(Request $request)
