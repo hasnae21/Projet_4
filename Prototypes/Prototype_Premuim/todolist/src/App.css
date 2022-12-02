@@ -8,3 +8,14 @@
   align-items: center;
   justify-content: center;
 }
+
+.Donne {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.Table {
+margin-right: 200px;
+}
