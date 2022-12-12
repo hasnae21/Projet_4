@@ -14,18 +14,18 @@ return new class extends Migration
     public function up()
     {
         Schema::create('Groupes', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->string('Nom_groupe')->nullable();
-            $table->unsignedInteger("Annee_formation_id")->nullable();
-            $table->foreign("Annee_formation_id")
-                ->references("id")
-                ->on('Annee_formation')
-                ->onDelete('cascade');
-            $table->unsignedInteger("Formateur_id")->nullable();
-            $table->foreign("Formateur_id")
-                ->references("id")
-                ->on('Formateur')
-                ->onDelete('cascade');
+
+            $table->foreignId("Annee_formation_id")
+                ->constrained("Annee_formation")
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+
+            $table->foreignId("Formateur_id")
+                ->constrained("Formateur")
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
 
             $table->string('Logo')->nullable();
         });
