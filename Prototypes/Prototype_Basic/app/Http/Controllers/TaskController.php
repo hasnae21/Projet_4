@@ -16,7 +16,7 @@ class TaskController extends Controller
     public function store(Request $request)
     {
         $task = new Task();
-        $task->name = $request->name_task;
+        $task->name = $request->name;
         $task->save();
     }
 
@@ -29,7 +29,7 @@ class TaskController extends Controller
     {
         Task::find($id)
             ->update([
-            'name' => $request->name_task
+            'name' => $request->name
             ]);
     }
     

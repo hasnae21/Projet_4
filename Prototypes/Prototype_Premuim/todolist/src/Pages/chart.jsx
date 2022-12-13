@@ -19,17 +19,15 @@ class ChartBar extends React.Component {
     }
 
     render() {
-        console.log(this.state)
-
         return (
             <div style={{ width: 600 }}>
 
-                <Line data={{
+                <Bar data={{
                     labels: this.state.Data.map((value) => value.name),
                     datasets: [{
                         label: "duree de tache (/h)",
                         data: this.state.Data.map((value) => value.Period),
-                        indexAxis: 'x'
+                        indexAxis: 'y'
                     }]
                 }}
                 />

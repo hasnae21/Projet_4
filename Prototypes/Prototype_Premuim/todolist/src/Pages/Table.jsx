@@ -5,10 +5,10 @@ class Table extends React.Component {
 
     state = {
         Data: [],
-        name_task: "",
+        name: "",
         id: ""
     }
-        
+
     componentDidMount() {
         axios.get('http://127.0.0.1:8000/api/task')
             .then(res => this.setState({
@@ -17,28 +17,38 @@ class Table extends React.Component {
             )
     }
 
-    handleChange = (input) => {
+    handleChange = (e) => {
         this.setState({
-            name_task: input.target.value
+            name: e.target.value
         })
     }
+
+    handleAffiche = () => {
+        this.componentDidMount();
+    }
+
     handleClick = () => {
         axios.post('http://127.0.0.1:8000/api/task', this.state)
             .then(res => {
-                window.location.reload()
+                this.handleAffiche();
             })
     }
+
     handleDelete = (id) => {
         axios.delete('http://127.0.0.1:8000/api/task/' + id)
             .then(res => {
-                window.location.reload()
+                axios.get('http://127.0.0.1:8000/api/task')
+                .then(res => this.setState({
+                    Data: res.data
+                })
+                )
             })
     }
     handleEdit = (id) => {
         axios.get('http://127.0.0.1:8000/api/task/' + id + '/edit')
             .then(res => {
                 this.setState({
-                    name_task: res.data.name,
+                    name: res.data.name,
                     id: res.data.id
                 })
             })
@@ -47,7 +57,11 @@ class Table extends React.Component {
         let id = this.state.id
         axios.put('http://127.0.0.1:8000/api/task/' + id, this.state)
             .then(res => {
-                window.location.reload()
+                axios.get('http://127.0.0.1:8000/api/task')
+                .then(res => this.setState({
+                    Data: res.data
+                })
+                )
             })
     }
 
@@ -56,7 +70,7 @@ class Table extends React.Component {
             <div>
                 <label>Ajouter Tâche :</label>
                 <br />
-                <input type="text" value={this.state.name_task} onChange={this.handleChange} />
+                <input type="text" value={this.state.name} onChange={this.handleChange} />
                 <button onClick={this.handleClick}>Ajouter</button>
                 <button onClick={this.handleUpdate}>Modifier</button>
                 <table>
