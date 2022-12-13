@@ -14,16 +14,21 @@ return new class extends Migration
     public function up()
     {
         Schema::create('Preparation_tache', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->string("Nom_tache")->nullable();
             $table->string("Description")->nullable();
             $table->decimal("Duree")->nullable();
 
-            $table->unsignedInteger("Preparation_brief_id")->nullable();
-            $table->foreign("Preparation_brief_id")
-            ->references("id")
-            ->on('Preparation_brief')
-            ->onDelete('cascade');
+            // $table->unsignedInteger("Preparation_brief_id")->nullable();
+            // $table->foreign("Preparation_brief_id")
+            // ->references("id")
+            // ->on('Preparation_brief')
+            // ->onDelete('cascade');
+
+            $table->foreignId("Preparation_brief_id")
+            ->constrained("Preparation_brief")
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
         });
     }
 
@@ -34,6 +39,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tasks');
+        Schema::dropIfExists('Preparation_tache');
     }
 };

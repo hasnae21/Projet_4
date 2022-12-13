@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('Formateur', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->string("Nom_formateur")->nullable();
             $table->string("Prenom_formateur")->nullable();
             $table->string("Email_formateur")->nullable();
@@ -33,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('briefs');
+        Schema::dropIfExists('Formateur');
     }
 };

@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('Groupes', function (Blueprint $table) {
             $table->id();
             $table->string('Nom_groupe')->nullable();
+            $table->string('Logo')->nullable();
 
             $table->foreignId("Annee_formation_id")
                 ->constrained("Annee_formation")
@@ -27,7 +28,6 @@ return new class extends Migration
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
 
-            $table->string('Logo')->nullable();
         });
     }
 
@@ -38,6 +38,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('promotions');
+        Schema::dropIfExists('Groupes');
     }
 };

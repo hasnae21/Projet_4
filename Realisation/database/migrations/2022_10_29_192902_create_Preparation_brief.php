@@ -14,17 +14,23 @@ return new class extends Migration
     public function up()
     {
         Schema::create('Preparation_brief', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->string("Nom_du_brief")->nullable();
             $table->string("Description")->nullable();
             $table->decimal("Duree")->nullable();
 
-            $table->unsignedInteger("Formateur_id")->nullable();
-            $table->foreign("Formateur_id")
-            ->references("id")
-            ->on('Formateur')
-            ->onDelete('cascade');
+            // $table->unsignedInteger("Formateur_id")->nullable();
+            // $table->foreign("Formateur_id")
+            // ->references("id")
+            // ->on('Formateur')
+            // ->onDelete('cascade');
 
+            $table->foreignId("Formateur_id")
+            ->constrained("Formateur")
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
+
+            
         });
     }
 
@@ -35,6 +41,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('briefs');
+        Schema::dropIfExists('Preparation_brief');
     }
 };

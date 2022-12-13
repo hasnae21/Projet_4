@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('Apprenant', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->string("Nom")->nullable();
             $table->string("Prenom")->nullable();
             $table->string("Email")->nullable();
@@ -23,11 +23,13 @@ return new class extends Migration
             $table->string("CIN")->nullable();
             $table->date("Date_naissance")->nullable();
             $table->string("Image")->nullable();
+            
             // $table->unsignedInteger("promotion_id")->nullable();
             // $table->foreign("promotion_id")
             // ->references("id")
             // ->on('promotions')
             // ->onDelete('cascade');
+
         });
     }
 
@@ -38,6 +40,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('students');
+        Schema::dropIfExists('Apprenant');
     }
 };
