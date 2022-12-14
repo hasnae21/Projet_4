@@ -57,11 +57,7 @@ class Table extends React.Component {
         let id = this.state.id
         axios.put('http://127.0.0.1:8000/api/task/' + id, this.state)
             .then(res => {
-                axios.get('http://127.0.0.1:8000/api/task')
-                .then(res => this.setState({
-                    Data: res.data
-                })
-                )
+                this.handleAffiche();
             })
     }
 
