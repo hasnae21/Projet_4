@@ -35,6 +35,8 @@ return new class extends Migration
             ->constrained("Apprenant")
             ->onDelete('cascade')
             ->onUpdate('cascade');
+
+            $table->timestamps();
         });
     }
 

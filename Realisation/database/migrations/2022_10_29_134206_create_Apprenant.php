@@ -30,6 +30,8 @@ return new class extends Migration
             // ->on('promotions')
             // ->onDelete('cascade');
 
+            $table->timestamps();
+
         });
     }
 

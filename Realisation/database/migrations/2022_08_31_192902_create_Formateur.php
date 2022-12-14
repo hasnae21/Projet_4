@@ -23,6 +23,8 @@ return new class extends Migration
             $table->string("CIN")->nullable();
             $table->string("Image")->nullable();
 
+            $table->timestamps();
+
         });
     }
 
