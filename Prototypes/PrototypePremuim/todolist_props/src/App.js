@@ -5,7 +5,10 @@ import Todolist from './compenent/Todolist';
 class App extends React.Component{
   render(){
     return(
-      <Todolist/>
+      <div className='App-header'>
+        <h1>Todolist</h1>
+        <Todolist/>
+      </div>
     );
   }
 }

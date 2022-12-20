@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
-import Task from "./Task";
 import Add from "./add";
+import Task from "./Task";
 
 
 class Todolist extends React.Component {
@@ -24,19 +24,15 @@ class Todolist extends React.Component {
 
     handelN = (e) => {
         this.setState({ name: e.target.value });
-        console.log(e.target.value);
     }
     handelDD = (e) => {
         this.setState({ Date_debut: e.target.value });
-        console.log(e.target.value);
     }
     handelDF = (e) => {
         this.setState({ Date_fin: e.target.value });
-        console.log(e.target.value);
     }
     handelD = (e) => {
         this.setState({ description: e.target.value });
-        console.log(e.target.value);
     }
     handelsubmit = (e) => {
         e.preventDefault();
@@ -48,12 +44,12 @@ class Todolist extends React.Component {
             this.state.description = '';
         })
     }
+
     handeldelete = (id) => {
         axios.delete('http://127.0.0.1:8000/api/task/' + id).then(res => {
             this.affiche();
         })
     }
-
     handeledit = (id) => {
         axios.get('http://127.0.0.1:8000/api/task/' + id + '/edit').then(res => {
             this.setState({
@@ -76,6 +72,8 @@ class Todolist extends React.Component {
             this.state.description = '';
         })
     }
+
+
     render() {
         return (
             <div>
@@ -85,23 +83,40 @@ class Todolist extends React.Component {
                     handelD={this.handelD}
                     handelsubmit={this.handelsubmit}
                     handelupdate={this.handelupdate}
+
                     id={this.state.id}
                     namee={this.state.name}
                     Date_debute={this.state.Date_debut}
                     Date_fine={this.state.Date_fin}
-                    descriptione={this.state.description} />
+                    descriptione={this.state.description}
+                />
 
-                {this.state.list.map((value) => (
-                    <Task
-                        key={value.id}
-                        name={value.name}
-                        Date_debut={value.Date_debut}
-                        Date_fin={value.Date_fin}
-                        description={value.description}
-                        handeldelete={() => this.handeldelete(value.id)}
-                        handeledit={() => this.handeledit(value.id)}
-                    />
-                ))}
+                <h2>Tableau des taches</h2>
+                <table border="1">
+                    <thead>
+                        <th>Nom</th>
+                        <th>Discription</th>
+                        <th>Date de debut</th>
+                        <th>Date de fin</th>
+                        <th>Action</th>
+                    </thead>
+                    <tbody>
+
+                        {this.state.list.map((value) => (
+                            <Task
+                                key={value.id}
+                                name={value.name}
+                                Date_debut={value.Date_debut}
+                                Date_fin={value.Date_fin}
+                                description={value.description}
+
+                                handeldelete={() => this.handeldelete(value.id)}
+                                handeledit={() => this.handeledit(value.id)}
+                            />
+                        ))}
+
+                    </tbody>
+                </table>
             </div>
         );
     }
