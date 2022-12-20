@@ -9,7 +9,6 @@ class TaskController extends Controller
 {
     public function index()
     {
-        // return Task::all();
         return Task::select("*",DB::raw("TIMESTAMPDIFF(HOUR,Date_debut,Date_fin) AS Period"))->get();
 
     }
@@ -18,9 +17,6 @@ class TaskController extends Controller
     {
         $task = new Task();
         $task->name = $request->name;
-        $task->Date_debut = $request->Date_debut;
-        $task->Date_fin = $request->Date_fin;
-        $task->description = $request->description;
         $task->save();
     }
 
@@ -33,9 +29,6 @@ class TaskController extends Controller
     {
         $task = Task::findOrFail($id);
         $task->name = $request->name;
-        $task->Date_debut = $request->Date_debut;
-        $task->Date_fin = $request->Date_fin;
-        $task->description = $request->description;
         $task->save();
     }
     
