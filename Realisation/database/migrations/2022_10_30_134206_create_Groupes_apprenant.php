@@ -16,16 +16,6 @@ return new class extends Migration
         Schema::create('Groupes_apprenant', function (Blueprint $table) {
             $table->id();
 
-            // $table->unsignedInteger("Groupe_id")->nullable();
-            // $table->foreign("Groupe_id")
-            // ->references("id")
-            // ->on('Groupes')
-
-            // $table->unsignedInteger("Apprenant_id")->nullable();
-            // $table->foreign("Apprenant_id")
-            // ->references("id")
-            // ->on('Apprenant')
-
             $table->foreignId("Groupe_id")
             ->constrained("Groupes")
             ->onDelete('cascade')

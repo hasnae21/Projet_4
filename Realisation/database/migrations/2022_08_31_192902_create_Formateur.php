@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('Formateur', function (Blueprint $table) {
             $table->id();
+            
             $table->string("Nom_formateur")->nullable();
             $table->string("Prenom_formateur")->nullable();
             $table->string("Email_formateur")->nullable();

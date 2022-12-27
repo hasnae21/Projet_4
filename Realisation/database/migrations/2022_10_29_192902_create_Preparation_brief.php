@@ -15,15 +15,10 @@ return new class extends Migration
     {
         Schema::create('Preparation_brief', function (Blueprint $table) {
             $table->id();
+            
             $table->string("Nom_du_brief")->nullable();
             $table->string("Description")->nullable();
             $table->decimal("Duree")->nullable();
-
-            // $table->unsignedInteger("Formateur_id")->nullable();
-            // $table->foreign("Formateur_id")
-            // ->references("id")
-            // ->on('Formateur')
-            // ->onDelete('cascade');
 
             $table->foreignId("Formateur_id")
             ->constrained("Formateur")

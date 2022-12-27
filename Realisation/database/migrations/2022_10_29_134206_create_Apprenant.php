@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('Apprenant', function (Blueprint $table) {
             $table->id();
+            
             $table->string("Nom")->nullable();
             $table->string("Prenom")->nullable();
             $table->string("Email")->nullable();
@@ -24,12 +25,6 @@ return new class extends Migration
             $table->date("Date_naissance")->nullable();
             $table->string("Image")->nullable();
             
-            // $table->unsignedInteger("promotion_id")->nullable();
-            // $table->foreign("promotion_id")
-            // ->references("id")
-            // ->on('promotions')
-            // ->onDelete('cascade');
-
             $table->timestamps();
 
         });

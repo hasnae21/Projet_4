@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('Groupes', function (Blueprint $table) {
             $table->id();
+            
             $table->string('Nom_groupe')->nullable();
             $table->string('Logo')->nullable();
 

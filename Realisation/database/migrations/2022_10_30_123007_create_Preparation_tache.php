@@ -15,15 +15,10 @@ return new class extends Migration
     {
         Schema::create('Preparation_tache', function (Blueprint $table) {
             $table->id();
+            
             $table->string("Nom_tache")->nullable();
             $table->string("Description")->nullable();
             $table->decimal("Duree")->nullable();
-
-            // $table->unsignedInteger("Preparation_brief_id")->nullable();
-            // $table->foreign("Preparation_brief_id")
-            // ->references("id")
-            // ->on('Preparation_brief')
-            // ->onDelete('cascade');
 
             $table->foreignId("Preparation_brief_id")
             ->constrained("Preparation_brief")
