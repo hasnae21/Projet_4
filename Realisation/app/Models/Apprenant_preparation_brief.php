@@ -4,8 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Preparation_tache;
-use App\Models\Apprenant_preparation_brief;
+use App\Models\Preparation_brief;
 use App\Models\Apprenant;
 
 class Apprenant_preparation_brief extends Model
@@ -22,4 +21,5 @@ class Apprenant_preparation_brief extends Model
     public function preparation_brief(){
         return $this->belongsToMany(Preparation_brief::class);
     }
+
 }

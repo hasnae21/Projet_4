@@ -24,4 +24,6 @@ class Apprenant_preparation_tache extends Model
        public function apprenant(){
         return $this->belongsToMany(Apprenant::class);
     }
+
+    
 }

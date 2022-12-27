@@ -13,13 +13,15 @@ class Groupes_apprenant extends Model
     use HasFactory;
 
     protected $table = "groupes_apprenant";
-    protected $fillable = [ "Groupe_id","Apprenant_id" ];
+    protected $fillable = ["Groupe_id", "Apprenant_id"];
     public $timestamps = true;
 
-    public function groupe(){
+    public function groupe()
+    {
         return $this->belongsToMany(Groupes::class);
     }
-    public function apprenant(){
+    public function apprenant()
+    {
         return $this->belongsToMany(Apprenant::class);
     }
 }
