@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('tache', function (Blueprint $table) {
             $table->id();
-
+            
             $table->foreignId('Apprenant_id')
             ->constrained('apprenant')
             ->onDelete('cascade');
@@ -25,13 +25,15 @@ return new class extends Migration
             $table->foreignId('Preparation_tache_id')
                 ->constrained('preparation_tache')
                 ->onDelete('cascade');
-           $table->foreignId('Apprenant_P_brief_id')
+            $table->foreignId('Apprenant_P_brief_id')
                 ->constrained('brief')
                 ->onDelete('cascade');
 
             $table->string('Etat')->default('en pouse');
-            $table->timestamp("Date_debut")->nullable();
-            $table->timestamp("Date_fin")->nullable();
+            $table->date("Date_debut")->nullable();
+            $table->date("Date_fin")->nullable();
+            $table->date("Date_reel_debut")->nullable();
+            $table->date("Date_reel_fin")->nullable();
         });
     }
 

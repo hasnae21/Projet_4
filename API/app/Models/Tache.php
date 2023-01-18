@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -17,6 +16,8 @@ class Tache extends Model
         "Preparation_tache_id",
         "Etat",
         "Date_debut",
-        "Date_fin"
+        "Date_fin",
+        "Date_reel_debut",
+        "Date_reel_fin",
     ];
 }

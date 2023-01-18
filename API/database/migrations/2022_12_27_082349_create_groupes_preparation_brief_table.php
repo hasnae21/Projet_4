@@ -23,6 +23,8 @@ return new class extends Migration
             $table->foreignId("Groupe_id")
             ->constrained('groupes')
             ->onDelete('cascade');
+
+            $table->timestamps();
         });
     }
 

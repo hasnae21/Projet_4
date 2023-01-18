@@ -16,16 +16,16 @@ use App\Models\Brief;
 use App\Models\Tache;
 use App\Models\GroupesPreparationBrief;
 
-use Database\Factories\FormateurFactory;
-use Database\Factories\AnneFormationFactory;
-use Database\Factories\GroupesFactory;
-use Database\Factories\ApprenantFactory;
-use Database\Factories\PreparationBriefFactory;
-use Database\Factories\PreparationTacheFactory;
-use Database\Factories\GroupesApprenantFactory;
-use Database\Factories\BriefFactory;
-use Database\Factories\TacheFactory;
-use Database\Factories\GroupesPreparationBriefFactory;
+// use Database\Factories\FormateurFactory;
+// use Database\Factories\AnneFormationFactory;
+// use Database\Factories\GroupesFactory;
+// use Database\Factories\ApprenantFactory;
+// use Database\Factories\PreparationBriefFactory;
+// use Database\Factories\PreparationTacheFactory;
+// use Database\Factories\GroupesApprenantFactory;
+// use Database\Factories\BriefFactory;
+// use Database\Factories\TacheFactory;
+// use Database\Factories\GroupesPreparationBriefFactory;
 
 
 class DatabaseSeeder extends Seeder
