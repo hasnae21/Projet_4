@@ -1,0 +1,17 @@
+install Breeze
+
+add la colonne role dans le tableau Users
+
+add input role dans register.blade.php
+
+add role dans le modele User
+
+//ctrl+D pour selectionner plusieurs valeurs et changer leurs contenu
+
+AuthserviceProvider.php public function boot add some code (Gate) "isAdmin" /"isFormateur" /"isApprenant"
+
+add middelware in web routes
+
+you can also add authorize in function 
+
+you can write in a contractor 
